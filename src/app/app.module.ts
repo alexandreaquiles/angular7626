@@ -1,19 +1,28 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+
 
 import { FotoModule } from './foto/foto.module';
-import { HttpClientModule } from '@angular/common/http';
+import { PainelModule } from './painel/painel.module';
+import { roteamento } from './app.routes';
+import { ListagemComponent } from './listagem/listagem.component';
+import { CadastroComponent } from './cadastro/cadastro.component';
+import { FotoService } from './servicos/foto.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ListagemComponent,
+    CadastroComponent
   ],
   imports: [
-    BrowserModule, FotoModule, HttpClientModule
+    BrowserModule, HttpClientModule, FormsModule,
+    FotoModule, PainelModule, roteamento
   ],
-  providers: [],
+  providers: [ FotoService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
